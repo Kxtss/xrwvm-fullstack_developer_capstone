@@ -3,8 +3,17 @@ from .models import CarMake, CarModel
 def initiate():
     # Delete existing data to avoid duplicates if you run this multiple times.
     # This will delete all your CarMake and CarModel data each time it is run.
-    CarModel.objects.all().delete()
-    CarMake.objects.all().delete()
+    """Uncomment and follow the steps to populate db on terminal:
+    - activate env: .\djangoenv\Scripts\activate
+    - open django shell: python manage.py shell
+    - import and execute initiate: 
+    > from djangoapp.populate import initiate
+    > initiate()
+    > exit()
+    - run server: python manage.py runserver
+    """
+    # CarModel.objects.all().delete()
+    # CarMake.objects.all().delete()
 
     car_make_data = [
         {"name":"NISSAN", "description":"Great cars. Japanese technology", "car_id": 101},
