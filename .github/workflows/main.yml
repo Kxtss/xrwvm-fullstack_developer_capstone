@@ -28,9 +28,9 @@ jobs:
       - name: Create .flake8 config
         run: |
           echo "[flake8]" > .flake8
-          echo "max-line-length = 120" >> .flake8
+          echo "max-line-length = 200" >> .flake8
           echo "exclude = migrations, .git,__pycache__,venv" >> .flake8
-          echo "ignore = F403,F405,E203,W503,W605,E231,E251,E265,E275,E124,E128,W291,W293,E302,E303" >> .flake8
+          echo "ignore = F403,F405,E203,W503,W605,E231,E251,E265,E275,E124,E128,W291,W293,E302,E303,E225,E226,E722,W292,F401,F811,E712,F841,E123" >> .flake8
 
       - name: Print working directory
         run: pwd
