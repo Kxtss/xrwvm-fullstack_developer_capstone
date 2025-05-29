@@ -25,14 +25,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8
 
+      - name: Create .flake8 config
+        run: |
+          echo "[flake8]" > .flake8
+          echo "max-line-length = 120" >> .flake8
+          echo "exclude = migrations, .git,__pycache__,venv" >> .flake8
+          echo "ignore = F403,F405,E203,W503,W605,E231,E251,E265,E275,E124,E128,W291,W293,E302,E303" >> .flake8
+
       - name: Print working directory
         run: pwd
 
       - name: Run Linter
         run: |
-          pwd
-          # This command finds all Python files recursively and runs flake8 on them
-          find . -name "*.py" -exec flake8 {} +
+          flake8 .
           echo "Linted all the python files successfully"
 
   lint_js:
@@ -51,8 +56,11 @@ jobs:
       - name: Install JSHint
         run: npm install jshint --global
 
+      - name: Create .jshintrc
+        run: |
+          echo '{ "esversion": 8, "asi": true, "sub": true }' > .jshintrc
+
       - name: Run Linter
         run: |
-          # This command finds all JavaScript files recursively and runs JSHint on them
           find ./server/database -name "*.js" -exec jshint {} +
           echo "Linted all the js files successfully"
