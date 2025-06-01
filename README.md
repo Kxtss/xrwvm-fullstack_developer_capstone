@@ -154,6 +154,7 @@ Ensure you have the following installed before running the project:
 If you have any questions or suggestions, feel free to contact me:
 
 * **discord:** tengokudaimakyo
+* **Email:** x.kxtss@outlook.es
 
 ## License
 
